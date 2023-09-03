@@ -1,5 +1,6 @@
 # dio-lab-Banco-De-Dados
 # Modelo Lógico de Banco de Dados para E-commerce
+## https://sqliteonline.com/ -- Projeto compilado no link modelo MY SQL
 
 Este projeto consiste na modelagem do banco de dados para um cenário de e-commerce, considerando as relações entre as entidades e as chaves primárias e estrangeiras necessárias. Além disso, inclui a criação de queries SQL que abordam diversos aspectos do sistema de e-commerce.
 
