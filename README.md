@@ -35,3 +35,29 @@ Aqui estão algumas queries SQL que podem ser aplicadas a este banco de dados:
    FROM Cliente
    LEFT JOIN Pedido ON Cliente.ID = Pedido.ClienteID
    GROUP BY Cliente.Nome;
+
+2. **Algum vendedor também é fornecedor**?
+    ```sql
+    SELECT S.idSeller, S.SocialName
+    FROM seller S
+    INNER JOIN supplier SUP ON S.CNPJ = SUP.CNPJ;
+
+3. **Relação de produtos fornecedores e estoques**
+    ```sql
+    SELECT P.Pname, SUP.SocialName, PS.quantity AS Estoque
+    FROM product P
+    INNER JOIN productSupplier PS ON P.idProduct = PS.idPsProduct
+    INNER JOIN supplier SUP ON PS.idPsSupplier = SUP.idSupplier;
+
+4. **Relação de nomes dos fornecedores e nomes dos produtos**
+    ```sql
+    SELECT SUP.SocialName AS Fornecedor, P.Pname AS Produto
+    FROM supplier SUP
+    INNER JOIN productSupplier PS ON SUP.idSupplier = PS.idPsSupplier
+    INNER JOIN product P ON PS.idPsProduct = P.idProduct;
+
+5. **Pedidos com Status de Entrega:**
+    ```sql
+    SELECT O.idOrder, O.orderStatus, D.Status AS StatusEntrega, D.TrackingCode
+    FROM orders O
+    LEFT JOIN Delivery D ON O.idOrder = D.idOrder;
